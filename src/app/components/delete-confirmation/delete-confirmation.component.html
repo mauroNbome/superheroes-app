@@ -1,0 +1,47 @@
+<div class="modal-header">
+  <div class="modal-title">
+    <mat-icon class="warning-icon">warning</mat-icon>
+    <span>Confirmar Eliminación</span>
+  </div>
+  <button 
+    mat-icon-button 
+    class="close-button"
+    (click)="onCancel()"
+    aria-label="Cerrar modal">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<div class="modal-content">
+  <div class="confirmation-message">
+    ¿Eliminar este héroe?
+  </div>
+  <div class="hero-name">
+    Estás a punto de eliminar a <strong>{{ data.hero.name }}</strong> permanentemente.
+  </div>
+  <div class="warning-badge">
+    <mat-icon>info</mat-icon>
+    <span>Esta acción no se puede deshacer</span>
+  </div>
+</div>
+
+<div class="modal-footer">
+  <button 
+    mat-stroked-button 
+    class="cancel-button"
+    (click)="onCancel()"
+    data-testid="cancel-delete-btn">
+    <mat-icon>close</mat-icon>
+    Cancelar
+  </button>
+  
+  <button 
+    mat-raised-button 
+    color="warn"
+    class="delete-button"
+    (click)="onConfirm()"
+    data-testid="confirm-delete-btn">
+    <mat-icon>delete_forever</mat-icon>
+    Eliminar Héroe
+  </button>
+</div>

@@ -1,0 +1,69 @@
+# 🐳 Docker Ignore - Optimized for Angular Build
+# Only exclude what truly shouldn't be in Docker context
+
+# === PERFORMANCE EXCLUSIONS ===
+# These are large and not needed for builds
+node_modules
+.git
+.gitignore
+
+# === DEVELOPMENT EXCLUSIONS ===
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# === BUILD ARTIFACTS ===
+# Don't copy existing builds (we'll build fresh in container)
+dist/
+*.tgz
+*.tar.gz
+
+# === LOGS AND CACHE ===
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+/.angular/cache
+.sass-cache/
+
+# === ENVIRONMENT FILES ===
+.env.local
+.env.*.local
+.env.test
+
+# === OPERATING SYSTEM ===
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+
+# === COVERAGE AND TESTING OUTPUTS ===
+coverage/
+.nyc_output
+.karma/
+
+# === DOCUMENTATION EXCLUSIONS ===
+# Keep essential docs, exclude non-essential
+README.md
+ARCHITECTURE_DOCUMENTATION.md
+DOCKER_GUIDE.md
+DOCKER_GUIDE_CONCEPTOS.md
+
+# === DEVELOPMENT SCRIPTS ===
+# Keep core files, exclude helpers
+wsl2-setup.sh
+docker-scripts.sh
+
+# === RUNTIME FILES ===
+pids
+*.pid
+*.seed
+*.pid.lock 

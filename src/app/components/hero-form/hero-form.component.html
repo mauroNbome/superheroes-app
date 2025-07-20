@@ -1,0 +1,164 @@
+<!-- Hero Form Dialog Header -->
+<div class="dialog-header">
+  <div class="header-left">
+    <h2 mat-dialog-title class="dialog-title">{{ dialogTitle }}</h2>
+  </div>
+  
+  <!-- Close dialog button -->
+  <button 
+    mat-icon-button 
+    class="close-button"
+    (click)="onCancel()"
+    aria-label="Close dialog">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<!-- Hero Form Content -->
+<mat-dialog-content class="dialog-content">
+  <form [formGroup]="heroForm" (ngSubmit)="onSubmit()" class="hero-form">
+    
+    <!-- Hero Name Field -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Hero Name</mat-label>
+      <input 
+        matInput
+        formControlName="name"
+        placeholder="e.g. Superman, Batman, Wonder Woman"
+        maxlength="50"
+        autocomplete="off"
+        appUppercase>
+      <mat-icon matSuffix>person</mat-icon>
+      
+      <!-- Character counter -->
+      <mat-hint align="end">
+        {{ heroForm.get('name')?.value?.length || 0 }}/50
+      </mat-hint>
+      
+      <!-- Validation error messages -->
+      <mat-error *ngIf="hasFieldError('name')">
+        {{ getFieldErrorMessage('name') }}
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Superpower Field -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Superpower</mat-label>
+      <textarea 
+        matInput
+        formControlName="superpower"
+        placeholder="Describe the hero's primary superpower"
+        maxlength="100"
+        rows="3"
+        autocomplete="off">
+      </textarea>
+      <mat-icon matSuffix>flash_on</mat-icon>
+      
+      <!-- Character counter -->
+      <mat-hint align="end">
+        {{ heroForm.get('superpower')?.value?.length || 0 }}/100
+      </mat-hint>
+      
+      <!-- Validation error messages -->
+      <mat-error *ngIf="hasFieldError('superpower')">
+        {{ getFieldErrorMessage('superpower') }}
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Alter Ego Field -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Alter Ego</mat-label>
+      <input 
+        matInput
+        formControlName="alterEgo"
+        placeholder="e.g. Clark Kent, Bruce Wayne, Diana Prince"
+        maxlength="50"
+        autocomplete="off">
+      <mat-icon matSuffix>account_circle</mat-icon>
+      
+      <!-- Character counter -->
+      <mat-hint align="end">
+        {{ heroForm.get('alterEgo')?.value?.length || 0 }}/50
+      </mat-hint>
+      
+      <!-- Validation error messages -->
+      <mat-error *ngIf="hasFieldError('alterEgo')">
+        {{ getFieldErrorMessage('alterEgo') }}
+      </mat-error>
+    </mat-form-field>
+
+    <!-- First Appearance Date Field -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>First Appearance</mat-label>
+      <input 
+        matInput
+        type="date"
+        formControlName="firstAppearance"
+        [max]="getCurrentDate()">
+      <mat-icon matSuffix>calendar_today</mat-icon>
+      
+      <mat-hint>Date of the hero's first appearance</mat-hint>
+      
+      <!-- Validation error messages -->
+      <mat-error *ngIf="hasFieldError('firstAppearance')">
+        {{ getFieldErrorMessage('firstAppearance') }}
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Active Status Toggle -->
+    <div class="form-row">
+      <mat-slide-toggle 
+        formControlName="isActive"
+        color="primary"
+        class="status-toggle">
+        <span class="toggle-label">
+          <mat-icon class="toggle-icon">
+            {{ heroForm.get('isActive')?.value ? 'check_circle' : 'cancel' }}
+          </mat-icon>
+          {{ heroForm.get('isActive')?.value ? 'Hero Active' : 'Hero Inactive' }}
+        </span>
+      </mat-slide-toggle>
+    </div>
+
+  </form>
+</mat-dialog-content>
+
+<!-- Dialog Action Buttons -->
+<mat-dialog-actions class="dialog-actions">
+  <div class="actions-container">
+    
+    <!-- Cancel Button -->
+    <button 
+      mat-stroked-button
+      type="button"
+      (click)="onCancel()"
+      [disabled]="isLoading"
+      class="cancel-button">
+      Cancel
+    </button>
+
+    <!-- Primary Action Button -->
+    <button 
+      mat-raised-button
+      color="primary"
+      type="submit"
+      (click)="onSubmit()"
+      [disabled]="!heroForm.valid || isLoading"
+      class="action-button">
+      
+      <!-- Loading spinner during operations -->
+      <mat-spinner 
+        *ngIf="isLoading" 
+        diameter="20" 
+        class="button-spinner">
+      </mat-spinner>
+      
+      <!-- Button icon and text -->
+      <ng-container *ngIf="!isLoading">
+        <mat-icon>{{ isEditMode ? 'save' : 'add' }}</mat-icon>
+        {{ actionButtonText }}
+      </ng-container>
+    </button>
+
+  </div>
+</mat-dialog-actions>

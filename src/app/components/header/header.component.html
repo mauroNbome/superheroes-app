@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" class="app-header">
+  <div class="header-content">
+    <div class="logo-section" (click)="onHomeClick()" style="cursor: pointer;">
+      <span class="app-title">{{ title }}</span>
+    </div>
+    
+    <div class="header-actions">
+      <button 
+        mat-icon-button 
+        [matTooltip]="themeService.getToggleTooltip()"
+        (click)="onThemeToggle()"
+        class="theme-toggle"
+        data-testid="theme-toggle-btn">
+        <mat-icon>{{ themeService.getToggleIcon() }}</mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-toolbar>

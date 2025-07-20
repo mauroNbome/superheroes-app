@@ -1,0 +1,108 @@
+<div class="hero-detail-container">
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading-container">
+    <mat-spinner diameter="50"></mat-spinner>
+    <p>Cargando información del héroe...</p>
+  </div>
+
+  <!-- Hero Detail -->
+  <mat-card *ngIf="!loading && hero" class="hero-card">
+    
+    <!-- Hero Header -->
+    <div class="hero-header">
+      <div class="hero-info">
+        <h1 class="hero-name">{{ hero.name }}</h1>
+        <p class="hero-alter-ego">{{ hero.alterEgo }}</p>
+        <mat-chip [class]="heroStatusClass">
+          <mat-icon>{{ heroStatusIcon }}</mat-icon>
+          {{ heroStatusText }}
+        </mat-chip>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <!-- Hero Details -->
+    <div class="hero-details">
+      
+      <div class="detail-section">
+        <div class="detail-header">
+          <mat-icon class="section-icon">flash_on</mat-icon>
+          <h3>Súper Poderes</h3>
+        </div>
+        <p class="detail-content">{{ hero.superpower }}</p>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <div class="detail-section">
+        <div class="detail-header">
+          <mat-icon class="section-icon">calendar_today</mat-icon>
+          <h3>Primera Aparición</h3>
+        </div>
+        <p class="detail-content">{{ heroFormattedDate }}</p>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <div class="detail-section">
+        <div class="detail-header">
+          <mat-icon class="section-icon">badge</mat-icon>
+          <h3>Información</h3>
+        </div>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">ID:</span>
+            <span class="info-value">#{{ hero.id }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Identidad:</span>
+            <span class="info-value">{{ hero.alterEgo }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Estado:</span>
+            <span class="info-value">{{ heroStatusText }}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-section">
+      <mat-divider></mat-divider>
+      <div class="action-buttons">
+        <button mat-stroked-button (click)="goBack()" class="back-btn">
+          <mat-icon>arrow_back</mat-icon>
+          Volver
+        </button>
+        
+        <div class="primary-actions">
+          <button mat-raised-button color="primary" (click)="editHero()">
+            <mat-icon>edit</mat-icon>
+            Editar
+          </button>
+          
+          <button mat-raised-button color="warn" (click)="deleteHero()">
+            <mat-icon>delete</mat-icon>
+            Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </mat-card>
+
+  <!-- Error State -->
+  <mat-card *ngIf="!loading && !hero" class="error-card">
+    <div class="error-content">
+      <mat-icon class="error-icon">error_outline</mat-icon>
+      <h3>Héroe no encontrado</h3>
+      <p>El héroe que buscas no existe o ha sido eliminado.</p>
+      <button mat-raised-button color="primary" (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+        Volver a la lista
+      </button>
+    </div>
+  </mat-card>
+</div>

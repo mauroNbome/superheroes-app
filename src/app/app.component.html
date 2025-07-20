@@ -1,0 +1,18 @@
+<div class="app-container">
+  <!-- Header Component -->
+  <app-header [title]="title"></app-header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="content-wrapper">
+      <!-- Router Outlet para las rutas -->
+      <router-outlet></router-outlet>
+  </div>
+</main>
+
+  <!-- Footer Component -->
+  <app-footer [title]="title" [currentYear]="currentYear"></app-footer>
+</div>
+
+<!-- Loading Component - Global Loading Overlay -->
+<app-loading></app-loading>

@@ -1,0 +1,57 @@
+{
+  "name": "superheroes-app",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve --host 0.0.0.0 --port 4200 --poll 2000",
+    "start:wsl2": "ng serve --host 0.0.0.0 --port 4200 --poll 1000 --disable-host-check",
+    "start:basic": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "docker:dev": "docker compose --profile dev up --build",
+    "docker:dev:detached": "docker compose --profile dev up --build -d",
+    "docker:dev:stop": "docker compose --profile dev down",
+    "docker:prod:build": "docker build -t superheroes-app:latest .",
+    "docker:prod": "docker compose --profile prod up -d",
+    "docker:prod:stop": "docker compose --profile prod down",
+    "docker:clean": "docker system prune -f",
+    "docker:test": "docker run --rm -v \"$(pwd)\":/app -w /app node:20-alpine sh -c \"npm ci && npm test -- --watch=false --browsers=ChromeHeadless\""
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^19.0.0",
+    "@angular/cdk": "^19.2.19",
+    "@angular/common": "^19.0.0",
+    "@angular/compiler": "^19.0.0",
+    "@angular/core": "^19.0.0",
+    "@angular/forms": "^19.0.0",
+    "@angular/material": "^19.2.19",
+    "@angular/platform-browser": "^19.0.0",
+    "@angular/platform-browser-dynamic": "^19.0.0",
+    "@angular/router": "^19.0.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^19.0.2",
+    "@angular/cli": "^19.0.2",
+    "@angular/compiler-cli": "^19.0.0",
+    "@types/jasmine": "~5.1.0",
+    "jasmine-core": "~5.4.0",
+    "json-server": "^1.0.0-beta.3",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "msw": "^2.10.4",
+    "typescript": "~5.6.2"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
+  }
+}

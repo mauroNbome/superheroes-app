@@ -1,0 +1,147 @@
+/* ===== THEME IMPORT ===== */
+@import './styles/theme.css';
+
+/* ===== BASE LAYOUT ===== */
+html, 
+body { 
+  height: 100%; 
+  overflow-x: hidden;
+}
+
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===== GLOBAL TRANSITION BASE CLASS ===== */
+.smooth-transition,
+.mat-mdc-form-field,
+.mat-mdc-card,
+.mat-mdc-button,
+.mat-mdc-raised-button {
+  transition: all 0.3s ease;
+}
+
+/* ===== MATERIAL COMPONENTS - GLOBAL OVERRIDES ===== */
+
+/* Cards */
+.mat-mdc-card {
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+/* Tables */
+.mat-mdc-table {
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+}
+
+/* ===== DARK THEME SPECIFICS ===== */
+
+/* Form Fields & Inputs */
+.dark-theme .mat-mdc-text-field-wrapper {
+  background-color: var(--background-light);
+}
+
+.dark-theme .mat-mdc-form-field .mat-mdc-floating-label {
+  color: var(--text-secondary);
+}
+
+.dark-theme .mat-mdc-form-field .mat-mdc-input-element {
+  color: var(--text-primary);
+}
+
+/* ===== MODAL DIALOGS ===== */
+.mat-mdc-dialog-container {
+  border-radius: var(--border-radius-xl);
+  overflow: hidden;
+}
+
+.dark-theme .mat-mdc-dialog-container,
+.dark-theme .mat-mdc-dialog-content,
+.dark-theme .mat-mdc-dialog-actions {
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+}
+
+/* Modal Action Buttons */
+.dark-theme .mat-mdc-dialog-actions .mat-mdc-button:not([color="primary"]) {
+  background-color: var(--background-light);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.dark-theme .mat-mdc-dialog-actions .mat-mdc-raised-button[color="primary"] {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+/* ===== PAGINATION COMPONENT ===== */
+.dark-theme .mat-mdc-paginator,
+.dark-theme .mat-mdc-paginator-container {
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+}
+
+.dark-theme .mat-mdc-paginator {
+  border-top: 1px solid var(--border-color);
+}
+
+.dark-theme .mat-mdc-paginator .mat-mdc-paginator-range-label {
+  color: var(--text-primary);
+}
+
+/* Paginator Buttons */
+.dark-theme .mat-mdc-paginator .mat-mdc-icon-button {
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  margin: 0 2px;
+  background-color: var(--background-light);
+  transition: all 0.2s ease;
+}
+
+.dark-theme .mat-mdc-paginator .mat-mdc-icon-button:disabled {
+  color: var(--text-disabled);
+  background-color: transparent;
+  border-color: var(--border-light);
+  opacity: 0.5;
+}
+
+.dark-theme .mat-mdc-paginator .mat-mdc-icon-button:hover:not(:disabled) {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-color: var(--primary-color);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+/* ===== ACTION BUTTONS - SEMANTIC COLORS ===== */
+.dark-theme .mat-mdc-icon-button[color="accent"] {
+  color: var(--info-light); /* View action */
+}
+
+.dark-theme .mat-mdc-icon-button[color="primary"] {
+  color: var(--warning-light); /* Edit action */
+}
+
+.dark-theme .mat-mdc-icon-button[color="warn"] {
+  color: var(--danger-light); /* Delete action */
+}
+
+/* Hover States */
+.dark-theme .mat-mdc-icon-button[color="accent"]:hover {
+  color: var(--info-color);
+}
+
+.dark-theme .mat-mdc-icon-button[color="primary"]:hover {
+  color: var(--warning-color);
+}
+
+.dark-theme .mat-mdc-icon-button[color="warn"]:hover {
+  color: var(--danger-color);
+}
