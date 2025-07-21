@@ -6,6 +6,7 @@ Modern Angular 19 application showcasing enterprise-level architecture patterns,
 
 ---
 
+<<<<<<< Updated upstream
 ## 🏗️ **Architecture Overview**
 
 ### **Technology Stack**
@@ -24,6 +25,29 @@ Modern Angular 19 application showcasing enterprise-level architecture patterns,
 - ✅ **Accessibility**: WCAG 2.1 compliant Material Design
 - ✅ **Responsive Design**: Mobile-first approach
 - ✅ **Testing Coverage**: Unit, Integration, and E2E tests
+=======
+## 📋 Tabla de Contenidos
+
+- [🎯 Descripción del Proyecto](#-descripción-del-proyecto)
+- [⚡ Quick Start](#-quick-start)
+- [🔧 Setup Detallado](#-setup-detallado)
+- [🐳 Docker & DevOps](#-docker--devops)
+- [🧪 Testing](#-testing)
+- [📊 Arquitectura](#-arquitectura)
+- [🚀 Características Técnicas](#-características-técnicas)
+- [📖 Documentación](#-documentación)
+
+---
+
+## 🎯 Descripción del Proyecto
+
+**Aplicación CRUD de gestión de superhéroes** construida con **Angular 19**:
+- **Arquitectura moderna**: Standalone components, Signals API
+- **DevOps completo**: Docker multi-stage, scripts automatizados
+- **Optimización WSL2**: Configuración específica para entornos Windows/Linux
+- **Testing comprehensive**: Unit, Integration
+- **Performance**: Lazy loading, OnPush strategy, tree-shaking
+>>>>>>> Stashed changes
 
 ---
 
