@@ -1,9 +1,4 @@
 # 🦸 Superheroes App - Enterprise Architecture Documentation
-
-## 📋 **Executive Summary**
-
-Modern Angular 19 application showcasing enterprise-level architecture patterns, best practices, and cutting-edge technologies. Built with **Angular Signals**, **Standalone Components**, and **Material Design** for optimal performance and maintainability.
-
 ---
 
 <<<<<<< Updated upstream
@@ -22,9 +17,8 @@ Modern Angular 19 application showcasing enterprise-level architecture patterns,
 - ✅ **Enterprise Patterns**: Singleton, Observer, Factory, Strategy
 - ✅ **Performance Optimized**: OnPush strategy, lazy loading
 - ✅ **Type Safety**: 100% TypeScript with strict configuration
-- ✅ **Accessibility**: WCAG 2.1 compliant Material Design
 - ✅ **Responsive Design**: Mobile-first approach
-- ✅ **Testing Coverage**: Unit, Integration, and E2E tests
+- ✅ **Testing Coverage**: Unit testing
 =======
 ## 📋 Tabla de Contenidos
 
